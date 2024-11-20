@@ -29,6 +29,19 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile.docs
+    container_name: sphinx-docs
+    volumes:
+      - ./docs:/app/docs
+    ports:
+      - "8080:8080"
+    command: python3 -m http.server 8080 --directory /app/docs/build
+    depends_on:
+      - web
+      - db
 
 volumes:
   postgres_data:
