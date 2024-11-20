@@ -139,7 +139,6 @@ Project Structure
 - **Dockerfile**: Docker configuration for the web service.
 - **Dockerfile.docs**: Docker configuration for generating and serving Sphinx documentation.
 - **docker-compose.yml**: Docker Compose configuration for the entire project.
-- **docs/**: Sphinx documentation files and build output.
 - **.env**: Environment configuration file for the project.
 
 Testing
@@ -148,7 +147,7 @@ Run tests to ensure the project works correctly:
 
 .. code-block:: bash
 
-   docker-compose run web python backend/manage.py test
+   docker-compose exec web pytest --ds=config.settings.test --reuse-db
 
 License
 =======

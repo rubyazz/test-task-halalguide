@@ -147,7 +147,7 @@ Run tests to ensure the project works correctly:
 
 .. code-block:: bash
 
-   docker-compose run web python backend/manage.py test
+   docker-compose exec web pytest --ds=config.settings.test --reuse-db
 
 License
 =======
