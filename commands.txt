@@ -1,5 +1,9 @@
 for populate points
 docker-compose run web python backend/manage.py populate_pois
 
-for creating superuser
+
+
+docker-compose run web python backend/manage.py migrate
 docker-compose run web python backend/manage.py createsuperuser
+
+need to fill env
