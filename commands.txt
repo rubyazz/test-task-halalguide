@@ -1,3 +1,17 @@
+
+need to fill env:
+    DEBUG=True
+    DJANGO_SECRET_KEY=supersecretkey
+
+    POSTGRES_DB=django_db
+    POSTGRES_USER=django_user
+    POSTGRES_PASSWORD=django_password
+    POSTGRES_HOST=db
+    POSTGRES_PORT=5432
+
+docker-compose build
+docker-compose up
+
 for populate points
 docker-compose run web python backend/manage.py populate_pois
 
@@ -6,4 +20,3 @@ docker-compose run web python backend/manage.py populate_pois
 docker-compose run web python backend/manage.py migrate
 docker-compose run web python backend/manage.py createsuperuser
 
-need to fill env
