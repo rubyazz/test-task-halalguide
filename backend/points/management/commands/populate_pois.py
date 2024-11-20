@@ -1,7 +1,9 @@
 import random
+
 from django.core.management.base import BaseCommand
 from faker import Faker
 from points.models import PointOfInterest
+
 
 class Command(BaseCommand):
     help = "Populates the PointOfInterest model with 500 random objects"
