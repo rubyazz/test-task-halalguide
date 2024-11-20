@@ -1,12 +1,13 @@
-from rest_framework import serializers
 from points.models import PointOfInterest
+from rest_framework import serializers
 
 VALID_CATEGORIES = ["restaurant", "park", "mosque", "museum"]
+
 
 class PointOfInterestSerializer(serializers.ModelSerializer):
     class Meta:
         model = PointOfInterest
-        fields = '__all__'
+        fields = "__all__"
 
     def validate_latitude(self, value):
         if not -90 <= value <= 90:
@@ -20,5 +21,7 @@ class PointOfInterestSerializer(serializers.ModelSerializer):
 
     def validate_category(self, value):
         if value not in VALID_CATEGORIES:
-            raise serializers.ValidationError(f"Category must be one of {VALID_CATEGORIES}.")
+            raise serializers.ValidationError(
+                f"Category must be one of {VALID_CATEGORIES}."
+            )
         return value
